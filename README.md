@@ -1,5 +1,5 @@
 ---
-title: Face Real ESRGAN
+title: Face Real ESRGAN 2x 4x 8x
 emoji: 😻
 colorFrom: green
 colorTo: gray
