@@ -45,3 +45,4 @@ gr.Interface(inference,
     allow_flagging='never',
     theme="default",
     ).launch(enable_queue=True)
+    
