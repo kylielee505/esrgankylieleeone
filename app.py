@@ -29,7 +29,7 @@ def inference(image: Image, size: str) -> Image:
 
 title = "Face Real ESRGAN: 2x 4x 8x"
 description = "Increases the resolution of a photo. This model shows better results on faces compared to the original version."
-article = ""<div style='text-align: center;'>Develop by <a href='https://twitter.com/DoEvent' target='_blank'>Max Skobeev</a> | <a href='https://huggingface.co/sberbank-ai/Real-ESRGAN' target='_blank'>Model card</a> | <center><img src='https://visitor-badge.glitch.me/badge?page_id=max_skobeev_face_esrgan' alt='visitor badge'></center></div>""
+article = "<div style='text-align: center;'>Develop by <a href='https://twitter.com/DoEvent' target='_blank'>Max Skobeev</a> | <a href='https://huggingface.co/sberbank-ai/Real-ESRGAN' target='_blank'>Model card</a> | <center><img src='https://visitor-badge.glitch.me/badge?page_id=max_skobeev_face_esrgan' alt='visitor badge'></center></div>"
 
 gr.Interface(inference,
     [gr.inputs.Image(type="pil"), 
