@@ -45,5 +45,5 @@ gr.Interface(inference,
     allow_flagging='never',
     theme="default",
     cache_examples=False,
-    ).queue()launch()
+    ).queue().launch()
     
