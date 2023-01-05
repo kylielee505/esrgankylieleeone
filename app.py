@@ -1,6 +1,5 @@
 import torch
 from PIL import Image
-import numpy as np
 from RealESRGAN import RealESRGAN
 import gradio as gr
 
