@@ -13,12 +13,16 @@ model8.load_weights('weights/RealESRGAN_x8.pth', download=True)
 
 
 def inference(image: Image, size: str) -> Image:
-    if size == '2x':
-        result = model2.predict(image.convert('RGB'))
-    elif size == '4x':
-        result = model4.predict(image.convert('RGB'))
-    else:
-        result = model8.predict(image.convert('RGB'))
+    try:
+        if size == '2x':
+            result = model2.predict(image.convert('RGB'))
+        elif size == '4x':
+            result = model4.predict(image.convert('RGB'))
+        else:
+            result = model8.predict(image.convert('RGB'))
+    except Exception as e:
+        print(e)
+        raise gr.Error(str(e))
     return result
 
 
