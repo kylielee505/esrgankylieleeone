@@ -24,7 +24,7 @@ def inference(image: Image, size: str) -> Image:
     return result
 
 
-title = "Face Real ESRGAN: 2x 4x 8x"
+title = "Face Real ESRGAN UpScale: 2x 4x 8x"
 description = "This is an unofficial demo for Real-ESRGAN. Scales the resolution of a photo. This model shows better results on faces compared to the original version.<br>Telegram BOT: https://t.me/restoration_photo_bot"
 article = "<div style='text-align: center;'>Twitter <a href='https://twitter.com/DoEvent' target='_blank'>Max Skobeev</a> | <a href='https://huggingface.co/sberbank-ai/Real-ESRGAN' target='_blank'>Model card</a>  <center><img src='https://visitor-badge.glitch.me/badge?page_id=max_skobeev_face_esrgan' alt='visitor badge'></center></div>"
 
