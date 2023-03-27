@@ -19,8 +19,8 @@ def inference(image: Image, size: str) -> Image:
         result = model4.predict(image.convert('RGB'))
     else:
         result = model8.predict(image.convert('RGB'))
-    if torch.cuda.is_available():
-        torch.cuda.empty_cache()
+    # if torch.cuda.is_available():
+    #     torch.cuda.empty_cache()
     return result
 
 
