@@ -12,7 +12,7 @@ model8 = RealESRGAN(device, scale=8)
 model8.load_weights('weights/RealESRGAN_x8.pth', download=True)
 
 
-def inference(image: Image, size: str) -> Image:
+def inference(image, size):
     if size == '2x':
         result = model2.predict(image.convert('RGB'))
     elif size == '4x':
