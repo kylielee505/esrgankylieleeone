@@ -26,7 +26,7 @@ def inference(image, size):
 
 title = "Face Real ESRGAN UpScale: 2x 4x 8x"
 description = "This is an unofficial demo for Real-ESRGAN. Scales the resolution of a photo. This model shows better results on faces compared to the original version.<br>Telegram BOT: https://t.me/restoration_photo_bot"
-article = "<div style='text-align: center;'>Twitter <a href='https://twitter.com/DoEvent' target='_blank'>Max Skobeev</a> | <a href='https://huggingface.co/sberbank-ai/Real-ESRGAN' target='_blank'>Model card</a>  <center><img src='https://visitor-badge.glitch.me/badge?page_id=max_skobeev_face_esrgan' alt='visitor badge'></center></div>"
+article = "<div style='text-align: center;'>Twitter <a href='https://twitter.com/DoEvent' target='_blank'>Max Skobeev</a> | <a href='https://huggingface.co/sberbank-ai/Real-ESRGAN' target='_blank'>Model card</a>/div>"
 
 
 gr.Interface(inference,
@@ -42,5 +42,5 @@ gr.Interface(inference,
     examples=[['groot.jpeg', "2x"]],
     allow_flagging='never',
     cache_examples=False,
-    ).queue(concurrency_count=1, api_open=False).launch(show_api=False, show_error=True)
+    ).queue(concurrency_count=1).launch(show_error=True)
     
