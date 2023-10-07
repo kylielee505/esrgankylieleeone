@@ -4,6 +4,7 @@ from RealESRGAN import RealESRGAN
 import gradio as gr
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+print(device)
 model2 = RealESRGAN(device, scale=2)
 model2.load_weights('weights/RealESRGAN_x2.pth', download=True)
 model4 = RealESRGAN(device, scale=4)
