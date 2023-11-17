@@ -4,7 +4,6 @@ from RealESRGAN import RealESRGAN
 import gradio as gr
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-print(device)
 model2 = RealESRGAN(device, scale=2)
 model2.load_weights('weights/RealESRGAN_x2.pth', download=True)
 model4 = RealESRGAN(device, scale=4)
@@ -27,7 +26,7 @@ def inference(image, size):
 
 title = "Face Real ESRGAN UpScale: 2x 4x 8x"
 description = "This is an unofficial demo for Real-ESRGAN. Scales the resolution of a photo. This model shows better results on faces compared to the original version.<br>Telegram BOT: https://t.me/restoration_photo_bot"
-article = "<div style='text-align: center;'>Twitter <a href='https://twitter.com/DoEvent' target='_blank'>Max Skobeev</a> | <a href='https://huggingface.co/sberbank-ai/Real-ESRGAN' target='_blank'>Model card</a>/<div>"
+article = "<div style='text-align: center;'>Twitter <a href='https://twitter.com/DoEvent' target='_blank'>Max Skobeev</a> | <a href='https://huggingface.co/sberbank-ai/Real-ESRGAN' target='_blank'>Model card</a><div>"
 
 
 gr.Interface(inference,
@@ -43,5 +42,5 @@ gr.Interface(inference,
     examples=[['groot.jpeg', "2x"]],
     allow_flagging='never',
     cache_examples=False,
-    ).queue(concurrency_count=1).launch(show_error=True)
+    ).queue().launch(show_error=True)
     
