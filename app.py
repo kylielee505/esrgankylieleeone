@@ -21,6 +21,7 @@ def inference(image, size):
         result = model8.predict(image.convert('RGB'))
     if torch.cuda.is_available():
         torch.cuda.empty_cache()
+    print(f"Image size: {size} ... OK")
     return result
 
 
