@@ -1,2 +1,2 @@
 git+https://github.com/sberbank-ai/Real-ESRGAN.git
-torch
+torch==2.0.0
