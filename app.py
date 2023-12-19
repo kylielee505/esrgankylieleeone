@@ -43,5 +43,5 @@ gr.Interface(inference,
     examples=[['groot.jpeg', "2x"]],
     allow_flagging='never',
     cache_examples=False,
-    ).queue().launch(show_error=True)
+    ).queue(api_open=False).launch(show_error=True, show_api=False)
     
