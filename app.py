@@ -13,14 +13,15 @@ model8.load_weights('weights/RealESRGAN_x8.pth', download=True)
 
 
 def inference(image, size):
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+        
     if size == '2x':
         result = model2.predict(image.convert('RGB'))
     elif size == '4x':
         result = model4.predict(image.convert('RGB'))
     else:
         result = model8.predict(image.convert('RGB'))
-    if torch.cuda.is_available():
-        torch.cuda.empty_cache()
     print(f"Image size: {size} ... OK")
     return result
 
