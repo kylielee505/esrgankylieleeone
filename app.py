@@ -16,6 +16,10 @@ def inference(image, size):
     if image is None:
         raise gr.Error("Image not uploaded")
         
+    width, height = image.size
+    if width >= 5000 or height >= 5000:
+        raise gr.Error("The image is too large.")
+        
     if torch.cuda.is_available():
         torch.cuda.empty_cache()
         
