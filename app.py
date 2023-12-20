@@ -13,6 +13,9 @@ model8.load_weights('weights/RealESRGAN_x8.pth', download=True)
 
 
 def inference(image, size):
+    if image is None:
+        raise gr.Error("Image not uploaded")
+        
     if torch.cuda.is_available():
         torch.cuda.empty_cache()
         
@@ -22,7 +25,7 @@ def inference(image, size):
         result = model4.predict(image.convert('RGB'))
     else:
         result = model8.predict(image.convert('RGB'))
-    print(f"Image size: {size} ... OK")
+    print(f"Image size ({device}): {size} ... OK")
     return result
 
 
