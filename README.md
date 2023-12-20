@@ -4,8 +4,8 @@ emoji: 😻
 colorFrom: green
 colorTo: gray
 sdk: gradio
-sdk_version: 3.50.2
-python_version: 3.11.6
+sdk_version: 4.11.0
+python_version: 3.11.7
 app_file: app.py
 pinned: true
 license: apache-2.0
