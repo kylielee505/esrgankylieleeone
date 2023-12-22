@@ -3,6 +3,7 @@ from PIL import Image
 from RealESRGAN import RealESRGAN
 import gradio as gr
 import gc
+import spaces
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model2 = RealESRGAN(device, scale=2)
@@ -16,6 +17,8 @@ if torch.cuda.is_available():
     torch.cuda.empty_cache()
     gc.collect()
 
+
+@spaces.GPU
 def inference(image, size):
     if image is None:
         raise gr.Error("Image not uploaded")
