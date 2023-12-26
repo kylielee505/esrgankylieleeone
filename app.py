@@ -5,11 +5,11 @@ import gradio as gr
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model2 = RealESRGAN(device, scale=2)
-model2.load_weights('weights/RealESRGAN_x2.pth', download=True)
+model2.load_weights('RealESRGAN_x2.pth', download=True)
 model4 = RealESRGAN(device, scale=4)
-model4.load_weights('weights/RealESRGAN_x4.pth', download=True)
+model4.load_weights('RealESRGAN_x4.pth', download=True)
 model8 = RealESRGAN(device, scale=8)
-model8.load_weights('weights/RealESRGAN_x8.pth', download=True)
+model8.load_weights('RealESRGAN_x8.pth', download=True)
 
 
 def inference(image, size):
