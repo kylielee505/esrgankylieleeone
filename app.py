@@ -13,6 +13,9 @@ model8.load_weights('weights/RealESRGAN_x8.pth', download=True)
 
 
 def inference(image, size):
+    global model2
+    global model4
+    global model8
     if image is None:
         raise gr.Error("Image not uploaded")
         
@@ -22,13 +25,29 @@ def inference(image, size):
 
     if torch.cuda.is_available():
         torch.cuda.empty_cache()
-        
+    
     if size == '2x':
-        result = model2.predict(image.convert('RGB'))
+        try:
+            result = model2.predict(image.convert('RGB'))
+        except torch.cuda.OutOfMemoryError as e:
+            model2 = RealESRGAN(device, scale=2)
+            model2.load_weights('weights/RealESRGAN_x2.pth', download=False)
+            result = model2.predict(image.convert('RGB'))
     elif size == '4x':
-        result = model4.predict(image.convert('RGB'))
+        try:
+            result = model4.predict(image.convert('RGB'))
+        except torch.cuda.OutOfMemoryError as e:
+            model4 = RealESRGAN(device, scale=4)
+            model4.load_weights('weights/RealESRGAN_x4.pth', download=False)
+            result = model4.predict(image.convert('RGB'))
     else:
-        result = model8.predict(image.convert('RGB'))
+        try:
+            result = model8.predict(image.convert('RGB'))
+        except torch.cuda.OutOfMemoryError as e:
+            model8 = RealESRGAN(device, scale=8)
+            model8.load_weights('weights/RealESRGAN_x8.pth', download=False)
+            result = model8.predict(image.convert('RGB'))
+            
     print(f"Image size ({device}): {size} ... OK")
     return result
 
