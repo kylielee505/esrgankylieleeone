@@ -30,6 +30,7 @@ def inference(image, size):
         try:
             result = model2.predict(image.convert('RGB'))
         except torch.cuda.OutOfMemoryError as e:
+            print(e)
             model2 = RealESRGAN(device, scale=2)
             model2.load_weights('weights/RealESRGAN_x2.pth', download=False)
             result = model2.predict(image.convert('RGB'))
@@ -37,16 +38,18 @@ def inference(image, size):
         try:
             result = model4.predict(image.convert('RGB'))
         except torch.cuda.OutOfMemoryError as e:
+            print(e)
             model4 = RealESRGAN(device, scale=4)
             model4.load_weights('weights/RealESRGAN_x4.pth', download=False)
-            result = model4.predict(image.convert('RGB'))
+            result = model2.predict(image.convert('RGB'))
     else:
         try:
             result = model8.predict(image.convert('RGB'))
         except torch.cuda.OutOfMemoryError as e:
+            print(e)
             model8 = RealESRGAN(device, scale=8)
             model8.load_weights('weights/RealESRGAN_x8.pth', download=False)
-            result = model8.predict(image.convert('RGB'))
+            result = model2.predict(image.convert('RGB'))
             
     print(f"Image size ({device}): {size} ... OK")
     return result
