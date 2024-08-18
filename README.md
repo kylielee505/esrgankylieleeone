@@ -4,7 +4,7 @@ emoji: 😻
 colorFrom: green
 colorTo: gray
 sdk: gradio
-sdk_version: 4.36.1
+sdk_version: 4.41.0
 python_version: 3.11.9
 app_file: app.py
 pinned: true
