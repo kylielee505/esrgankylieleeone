@@ -62,17 +62,17 @@ article = "<div style='text-align: center;'>Twitter <a href='https://twitter.com
 
 gr.Interface(inference,
     [gr.Image(type="pil"), 
-    gr.Radio(['2x', '4x', '8x'], 
+    gr.Radio(["2x", "4x", "8x"], 
     type="value",
-    value='2x',
-    label='Resolution model')], 
+    value="2x",
+    label="Resolution model")], 
     gr.Image(type="pil", label="Output", format="png"),
     title=title,
     description=description,
     article=article,
-    examples=[['groot.jpeg', "2x"]],
-    allow_flagging='never',
-    cache_examples=False,
+    examples=[["groot.jpeg", "2x"]],
+    allow_flagging="never",
+    cache_examples="lazy",
     delete_cache=(4000, 4000),
     ).queue(api_open=True).launch(show_error=True, show_api=True)
     
