@@ -73,6 +73,6 @@ gr.Interface(inference,
     examples=[["groot.jpeg", "2x"]],
     allow_flagging="never",
     cache_examples="lazy",
-    delete_cache=(4000, 4000),
+    delete_cache=(44000, 44000),
     ).queue(api_open=True).launch(show_error=True, show_api=True)
     
