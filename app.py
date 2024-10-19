@@ -71,8 +71,8 @@ gr.Interface(inference,
     description=description,
     article=article,
     examples=[["groot.jpeg", "2x"]],
-    allow_flagging="never",
-    cache_examples="lazy",
+    flagging_mode="never",
+    cache_mode="lazy",
     delete_cache=(44000, 44000),
     ).queue(api_open=True).launch(show_error=True, show_api=True)
     
